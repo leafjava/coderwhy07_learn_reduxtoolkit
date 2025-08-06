@@ -6,13 +6,19 @@ const counterSlice = createSlice({
     counter:888
   },
   reducers:{
-    addNumber(state, action){
-
+    addNumber(state, {payload}){
+      state.counter = state.counter + payload
     },
-    subNumber(state, action){
+    subNumber(state, {payload}){
+      // console.log("counter reducer subNumber", action)
+      // const payload = action.payload
+      state.counter = state.counter - payload
 
     }
   }
 })
+
+export const {addNumber,subNumber} = counterSlice.actions
+
 
 export default counterSlice.reducer
