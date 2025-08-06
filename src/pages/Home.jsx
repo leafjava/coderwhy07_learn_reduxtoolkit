@@ -1,11 +1,20 @@
 import React, { PureComponent } from 'react'
+import {connect} from 'react-redux'
 
 export class home extends PureComponent {
   render() {
+    const { counter } = this.props
+
     return (
-      <div>home</div>
+      <div>
+        <h2>Home Counter:{counter}</h2>
+      </div>
     )
   }
 }
 
-export default home
+const mapStateToProps = (state) => ({
+  counter:state.counter.counter
+})
+
+export default connect(mapStateToProps)(home)

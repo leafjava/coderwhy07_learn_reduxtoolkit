@@ -1,13 +1,20 @@
 import React, { PureComponent } from 'react'
+import { connect } from 'react-redux'
 
 export class Profile extends PureComponent {
   render() {
+    const {counter} = this.props
+
     return (
       <div>
-        <h2>Page Counter:0</h2>
+        <h2>Page Counter:{counter}</h2>
       </div>
     )
   }
 }
 
-export default Profile
+const mapStateToProps = (state) => ({
+  counter:state.counter.counter
+})
+
+export default connect(mapStateToProps)(Profile)

@@ -10,7 +10,7 @@ export class App extends PureComponent {
 
     return (
       <div>
-        <h2>App Counter:0</h2>
+        <h2>App Counter:{counter}</h2>
         <div className='pages'>
           <Home/>
           <Profile/>
