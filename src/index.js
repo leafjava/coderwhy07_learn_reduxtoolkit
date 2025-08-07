@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux'
+import {StoreContext} from './hoc'
 import App from './App';
 import store from './store'
 
@@ -9,7 +10,10 @@ root.render(
   // <React.StrictMode>
     // </React.StrictMode> 
     <Provider store={store}>
-      <App />
+      <StoreContext.Provider value={store}>
+        <App />
+      </StoreContext.Provider>
+      
     </Provider>
 
 );
