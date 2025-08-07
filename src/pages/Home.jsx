@@ -1,8 +1,22 @@
 import React, { PureComponent } from 'react'
 import {connect} from 'react-redux'
 import { addNumber } from '../store/features/counter'
+import axios from 'axios'
+import { changeBanners,changeRecommends, fetchHomeMultidataAction } from '../store/features/home'
+import store from '../store'
 
 export class home extends PureComponent {
+  componentDidMount(){
+    // axios.get("http://123.207.32.32:8000/home/multidata").then(res => {
+    //   const banners = res.data.data.banner.list
+    //   const recommends = res.data.data.recommend.list
+
+    //   store.dispatch(changeBanners(banners))
+    //   store.dispatch(changeRecommends(recommends))
+    // })
+    this.props.fetchHomeMultidata()
+  }
+
   addNumber(num){
     this.props.addNumber(num)
   }
@@ -28,6 +42,9 @@ const mapStateToProps = (state) => ({
 const DispatchToProps = (dispatch) => ({
   addNumber(num){
     dispatch(addNumber(num))
+  },
+  fetchHomeMultidata(){
+    dispatch(fetchHomeMultidataAction())
   }
 })
 
